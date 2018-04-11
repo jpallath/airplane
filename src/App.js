@@ -27,17 +27,28 @@ class App extends Component {
           "content": "He's really big and always so angry.  Honestly, I don't know what to do with him.  I think I should give him a chance but I think I prefer to maintain my prejudice over this thing.  He's probably killed a few people, so that makes him a sinner.  What do I know though? He might be the hero"
         }
       ],
-      nextArticleId : 2
+      nextArticleId : 3
     }
+    this.handleSave = this.handleSave.bind(this);
   }
+  handleSave(article) {
+  this.setState((prevState, props) => {
+    const newArticle = {...article, id: this.state.nextArticleId};
+    return {
+      nextArticleId: prevState.nextArticleId+1,
+      articles : [...this.state.articles, newArticle]
+    }
+  })
+}
+
   render(){
     return(
       <BrowserRouter>
         <div>
         <Header />
-        <Route exact path="/" component={(props)=> <ArticleList {...props} articles={this.state.articles}/>}/>
+        <Route exact path="/" render={(props)=> <ArticleList {...props} articles={this.state.articles}/>}/>
         <Route exact path='/article/:id' render={(props) => <ArticleView {...props} articles={this.state.articles} />}/>
-        <Route path='/create' component={(props)=> <ArticleMaker {...props} articles={this.state.articles}/>}/>
+        <Route path='/create' render={(props)=> <ArticleMaker {...props} articles={this.state.articles} onSave={this.handleSave} />}/>
         </div>
       </BrowserRouter>
     )
