@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-class ArticleItem extends Component{
-  render(){
+class ArticleItem extends Component {
+  render() {
     const { title, content, id } = this.props;
-    const link = `/article/${id}`
-    return(
+    const link = `/article/${id}`;
+    return (
       <div>
-        <a href={link}>{title}</a>
+        <Link to={link}>{title}</Link>
       </div>
-    )
+    );
   }
 }
 
