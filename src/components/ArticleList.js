@@ -6,7 +6,7 @@ class ArticleList extends Component {
     const articles = this.props.articles.map(article => (
       <ArticleItem key={article.id} {...article} />
     ));
-    return <div>{articles}</div>;
+    return <div className="article-list">{articles}</div>;
   }
 }
 

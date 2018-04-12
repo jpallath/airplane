@@ -6,10 +6,7 @@ class Header extends Component {
     return (
       <nav>
         <Link to="/" className="btn btn-primary">
-          Article List
-        </Link>
-        <Link to="/create" className="btn btn-primary">
-          Make an Article
+          / Fan Load /
         </Link>
       </nav>
     );
