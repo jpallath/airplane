@@ -68,6 +68,8 @@ nav a {
   bottom: 0;
   right: 10px;
   border-radius: 25px;
+  border: black 2px solid;
+  background: red;
 }
 
 .article-item:hover {
